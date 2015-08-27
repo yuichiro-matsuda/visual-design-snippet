@@ -1,0 +1,43 @@
+@mixin abstlycenter($w, $h) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -($w * .5);
+  margin-top: -($h * .5);
+}
+
+@mixin a($width, $height: 55px) {
+  width: $width;
+  height: $height;
+  line-height: $height;
+  @include abstlycenter($width, $height);
+}
+
+@mixin clip($string) {
+  -webkit-clip-path: $string;
+  clip-path: $string;
+}
+
+@mixin grab {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+// keyframes mixin
+@mixin keyframe($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}

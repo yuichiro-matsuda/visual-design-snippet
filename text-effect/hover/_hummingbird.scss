@@ -1,0 +1,36 @@
+section {
+  &.p18{
+    background-image: url($image9);
+    a{
+      $w: 491px;
+      $h: 94px;
+      text-align: left;
+      @include a($w, $h);
+      font-size: 3.87500em;
+      &:before, &:after{
+        content: '';
+        position: absolute;
+        background-color: rgba(255, 255, 255, .8);
+        width: 46px;
+        height: 65px;
+        left: -46px;
+        top: -12%;
+      }
+      &:before{
+        @include clip(polygon(0 35%, 100% 43%, 100% 100%));
+      }
+      &:after{
+        @include clip(polygon(13% 0, 100% 43%, 100% 100%));
+      }
+      &:hover{
+        &:before{
+          @include animation(voavoa .1s infinite linear);
+        }
+        &:after{
+          @include animation(voavoa2 .1s infinite linear);
+        }
+      }
+    }
+  }
+
+}

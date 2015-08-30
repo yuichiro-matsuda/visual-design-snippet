@@ -1,0 +1,50 @@
+section {
+  &.p12{
+    background-image: url($image3);
+    a{
+      padding-top: 50px;
+      font-weight: 200;
+      $w: 440px;
+      $h: 200px;
+      @include a($w,$h);
+      margin-top: -150px;
+      &:before{
+        content: attr(data-content);
+        color: #465154;
+        transition:all .5s ease-in;
+        @include grab;
+        background-color: #fff;
+        padding-top: 50px;
+        @include clip(
+          polygon(
+            0% 100%,
+            159px 188px,
+            171px 185px,
+            174px 185px,
+            184px 182px,
+            191px 183px,
+            199px 179px,
+            202px 176px,
+            219px 158px,
+            225px 175px,
+            230px 172px,
+            245px 179px,
+            283px 184px,
+            293px 187px,
+            311px 192px,
+            318px 191px,
+            357px 194px,
+            100% 100%
+            )
+          );
+        @include animation(montanhaDaTristeza .5s forwards linear);
+
+      }
+      &:hover{
+        &:before{
+          @include animation(montanhaDaAlegria .9s forwards linear);
+        }
+      }
+    }
+  }
+}

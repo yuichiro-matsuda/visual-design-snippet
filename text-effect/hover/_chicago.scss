@@ -1,0 +1,46 @@
+section {
+  &.p16{
+    background-image: url($image7);
+    a{
+      $w: 632px;
+      $h: 124px;
+      @include a($w, $h);
+      z-index:10;
+      overflow: hidden;
+      &:before, &:after{
+        position: absolute;
+        left: 0;
+        display: block;
+        height: 150px;
+        background-size: contain;
+        opacity: 1;
+        @include transition( all .4s cubic-bezier(.17,.67,.64,1.55));
+        opacity: 0;
+        top: 50px;
+      }
+      &:before{
+        background-image: url(http://i.imgur.com/ko4m3Fj.png);
+        width: 1772px;
+        z-index: -1;
+        @include animation(chicaum 60s infinite linear);
+
+      }
+      &:after{
+        background-image: url(http://i.imgur.com/5asE7dv.png);
+        width: 1682px;
+        z-index: 1;
+        @include animation(chicadois 30s infinite linear);
+      }
+      &:hover{
+        &:before, &:after{
+          opacity: 1;
+          top: 0;
+        }
+        &:before{
+          transition-delay: .2s;
+        }
+      }
+    }
+  }
+
+}

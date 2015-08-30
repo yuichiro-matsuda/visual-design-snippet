@@ -1,0 +1,93 @@
+section {
+  &.p15{
+    background-image: url($image6);
+    a{
+      $w : 274px;
+      $h: 58px;
+      @include a($w,$h);
+      line-height: 1;
+      .in, .t1:before, .t1:after, .t2:before, .t2:after{
+        content: '';
+        width: 0px;
+        height: 19px;
+        background-color: #fff;
+        position: absolute;
+        @include transition-property(all);
+        @include transition-duration(.3s);
+        @include transition-timing-function(cubic-bezier(.17,.67,.46,1.45));
+      }
+      .t1{
+        height: 60px;
+        width: 48px;
+        top: 0%;
+        left: -48px;
+        position: absolute;
+        *, &:before, &:after{
+          @include clip(
+            polygon(0 0, 100% 0, 100% 100%, 25% 100%)
+            );
+        }
+        &:before{
+          right: 0;
+        }
+        .in{
+          right: 0;
+          top: 22px;
+        }
+        &:after{
+          right: 0;
+          top: 45px;
+        }
+      }
+      .t2{
+        height: 60px;
+        width: 48px;
+        top: 0%;
+        right: -48px;
+        position: absolute;
+        *, &:before, &:after{
+          @include clip(
+            polygon(0 0, 100% 0, 75% 100%, 0% 100%)
+            );
+        }
+        &:before{
+          left: 0;
+        }
+        .in{
+          left: 0;
+          top: 22px;
+        }
+        &:after{
+          left: 0;
+          top: 45px;
+        }
+      }
+      .t1:before, .t2:before{
+        @include transition-delay(0.0s);
+      }
+      .t1 .in, .t2 .in{
+        @include transition-delay(0.1s);
+      }
+      .t1:after, .t2:after{
+        @include transition-delay(0.2s);
+      }
+      &:hover{
+        .in, .t1:before, .t1:after, .t2:before, .t2:after{
+          width: 48px;
+        }
+
+        .t1:before,.t2:before{
+          @include transition-delay(0.2s);
+        }
+        .t1 .in, .t2 .in{
+          @include transition-delay(0.1s);
+        }
+        .t1:after, .t2:after{
+          @include transition-delay(0s);
+        }
+
+
+      }
+    }
+  }
+}

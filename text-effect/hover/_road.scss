@@ -1,0 +1,39 @@
+section {
+  &.p11{
+    background-image: url($image2);
+
+    a{
+      $w: 314px;
+      $h: 78px;
+      @include a($w,$h);
+      &:before, &:after{
+        content: '';
+        position: absolute;
+        height: 7px;
+        left: 0;
+        right: 0;
+        @include transform(translate(0, 30px));
+        @include transition(.3s all);
+        opacity: 0;
+      }
+      &:before{
+        bottom: -6px;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAAHBAMAAACcthkwAAAAD1BMVEUAAAD/vwD/vwD/vwD/vwBYa2Z+AAAABHRSTlMAwEAw9JyPcwAAAC1JREFUOMtjcMEETgwQwIJFTgEiRWdto64cdeWoK8l2pSAmEIZKMWKRMxgQbQCWVcU78Wj7hwAAAABJRU5ErkJggg==);
+        @include animation(road .9s infinite linear);
+
+      }
+      &:after{
+        bottom: 8px;
+        background-color: #FFBF00;
+      }
+
+      &:hover{
+        &:before, &:after{
+          @include transform(translate(0, 0px));
+          opacity: 1;
+        }
+      }
+
+    }
+  }
+}
